@@ -227,6 +227,27 @@ blockquote.bq{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,23px
 .exp-dot{position:absolute;left:-23px;top:22px;width:14px;height:14px;background:var(--gold);border-radius:50%;border:3px solid var(--white);box-shadow:0 0 0 2px var(--gold);}
 .exp-dot-gray{background:var(--gray);box-shadow:0 0 0 2px var(--gray);}
 .exp-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px 28px;transition:all .3s;border-left:3px solid var(--gold);}
+
+/* EXPAND SYSTEM */
+.exp-card,.svc,.impact-card,.reason{cursor:pointer;position:relative;}
+.expand-btn{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-size:16px;font-weight:300;line-height:1;cursor:pointer;transition:all .3s;flex-shrink:0;background:transparent;margin-left:auto;}
+.exp-card .expand-btn{position:absolute;top:22px;right:22px;}
+.svc .expand-btn{position:absolute;top:16px;right:16px;}
+.impact-card .expand-btn{position:absolute;top:18px;right:18px;}
+.reason .expand-btn{margin-left:auto;align-self:center;}
+.expand-btn.open{background:var(--gold);color:var(--white);transform:rotate(45deg);}
+.expand-body{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,padding .3s ease;opacity:0;padding-top:0;}
+.expand-body.open{max-height:500px;opacity:1;padding-top:16px;}
+.expand-body ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;}
+.expand-body ul li{font-size:12.5px;color:var(--gray);line-height:1.5;padding-left:16px;position:relative;}
+.expand-body ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:11px;}
+.expand-body .expand-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;margin-top:12px;}
+.expand-body .expand-label:first-child{margin-top:0;}
+.expand-body .expand-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.expand-body .expand-pill{font-size:10.5px;background:rgba(200,134,10,.1);color:var(--gold);padding:4px 10px;border-radius:20px;border:1px solid rgba(200,134,10,.2);}
+.svc-expand ul li{color:rgba(255,255,255,.55);}
+.svc-expand ul li::before{color:var(--gold2);}
+
 .exp-card:hover{box-shadow:0 8px 32px rgba(200,134,10,.12);transform:translateX(4px);}
 .exp-card-light{border-left-color:var(--border);}
 .exp-card-light:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);}
@@ -723,6 +744,13 @@ section{padding:48px 18px;}
           </ul>
           <div class="exp-tags"><span class="exp-tag">Social Media</span><span class="exp-tag">Fidelización</span><span class="exp-tag">CX</span><span class="exp-tag">Supervisión</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Incremento del 40% en engagement en redes sociales</li><li>Supervisión de 3+ sucursales y mejora de procesos operativos</li><li>Participación en desarrollo de app (UX + comunicación)</li><li>Diseño de programa de fidelización y loyalty digital</li><li>Apoyo en acciones que contribuyeron al aumento de ventas</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Instagram Ads</span><span class="expand-pill">Calendario editorial</span><span class="expand-pill">Fidelización CX</span><span class="expand-pill">Supervisión operativa</span><span class="expand-pill">Contenido visual</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot"></div>
@@ -741,6 +769,13 @@ section{padding:48px 18px;}
           </ul>
           <div class="exp-tags"><span class="exp-tag">Marketing B2B</span><span class="exp-tag">Contenido</span><span class="exp-tag">Sostenibilidad</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Mejora en la comunicación de marca y visibilidad de productos B2B</li><li>Desarrollo de estrategia de contenidos saludables</li><li>Apoyo en operaciones logísticas y coordinación de lanzamientos</li><li>Incremento de visibilidad de productos en canales digitales</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Marketing B2B</span><span class="expand-pill">Sostenibilidad</span><span class="expand-pill">Copywriting</span><span class="expand-pill">Coordinación operativa</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot"></div>
@@ -759,6 +794,13 @@ section{padding:48px 18px;}
           </ul>
           <div class="exp-tags"><span class="exp-tag">Campañas</span><span class="exp-tag">Posicionamiento</span><span class="exp-tag">Digital</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Incremento de visibilidad de marca en redes sociales</li><li>Desarrollo de campañas promocionales por sucursal</li><li>Captación de nuevos clientes a través de acciones digitales</li><li>Diseño de contenido adaptado al mercado boliviano</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Social Media</span><span class="expand-pill">Campañas locales</span><span class="expand-pill">Diseño de contenido</span><span class="expand-pill">Posicionamiento</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot"></div>
@@ -777,6 +819,13 @@ section{padding:48px 18px;}
           </ul>
           <div class="exp-tags"><span class="exp-tag">Hotelería</span><span class="exp-tag">Captación</span><span class="exp-tag">Branding</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Aumento de consultas y reservas a través de canales digitales</li><li>Mejora de presencia online y reconocimiento de marca</li><li>Incremento en interacción con potenciales clientes</li><li>Planificación de estrategia de captación multicanal</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Hospitality marketing</span><span class="expand-pill">SEO básico</span><span class="expand-pill">Google Business</span><span class="expand-pill">Branding hotelero</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot"></div>
@@ -795,6 +844,13 @@ section{padding:48px 18px;}
           </ul>
           <div class="exp-tags"><span class="exp-tag">Ventas</span><span class="exp-tag">Fidelización</span><span class="exp-tag">Fitness</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Incremento en la captación de nuevos socios</li><li>Mejora en retención mediante atención personalizada</li><li>Aumento en la conversión de interesados a clientes activos</li><li>Apoyo en estrategias comerciales y cierre de ventas</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Ventas</span><span class="expand-pill">CRM</span><span class="expand-pill">Fidelización</span><span class="expand-pill">Atención al cliente</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot"></div>
@@ -813,6 +869,13 @@ section{padding:48px 18px;}
           </ul>
           <div class="exp-tags"><span class="exp-tag">Administración</span><span class="exp-tag">Supervisión</span><span class="exp-tag">Operaciones</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Mejora en la organización interna y control de procesos</li><li>Optimización de tareas operativas multi-área</li><li>Apoyo en acciones de comunicación interna y externa</li><li>Gestión administrativa y supervisión de equipos</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Administración</span><span class="expand-pill">Supervisión</span><span class="expand-pill">Operaciones</span><span class="expand-pill">Comunicación interna</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot exp-dot-gray"></div>
@@ -827,6 +890,13 @@ section{padding:48px 18px;}
           <ul class="exp-list"><li>Experiencia internacional en entorno gastronómico de alta demanda</li></ul>
           <div class="exp-tags"><span class="exp-tag">Internacional</span><span class="exp-tag">Gastronomía</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Adaptación exitosa a estándares internacionales de trabajo</li><li>Mejora en eficiencia operativa en entorno de alta demanda</li><li>Experiencia en mercado laboral europeo (Irlanda)</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Trabajo en equipo internacional</span><span class="expand-pill">Alta presión</span><span class="expand-pill">Inglés laboral</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot exp-dot-gray"></div>
@@ -841,6 +911,13 @@ section{padding:48px 18px;}
           <ul class="exp-list"><li>Elaboración de productos y control de calidad en entorno internacional</li></ul>
           <div class="exp-tags"><span class="exp-tag">Internacional</span><span class="exp-tag">Calidad</span></div>
         </div>
+          <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+          <div class="expand-body">
+            <div class="expand-label">Logros y resultados</div>
+            <ul><li>Elaboración de productos con control de calidad riguroso</li><li>Cumplimiento de tiempos en entornos de alta demanda</li><li>Mantenimiento de estándares de calidad internacional</li></ul>
+            <div class="expand-label">Habilidades aplicadas</div>
+            <div class="expand-pills"><span class="expand-pill">Control de calidad</span><span class="expand-pill">Trabajo internacional</span><span class="expand-pill">Gastronomía</span></div>
+          </div>
       </div>
       <div class="exp-item rv">
         <div class="exp-dot exp-dot-gray"></div>
@@ -871,16 +948,106 @@ section{padding:48px 18px;}
   <div class="container">
     <div class="rv" style="margin-bottom:56px;"><div class="sec-label">Lo que hago</div><h2 class="sec-title">Mis áreas de <span class="g">especialización</span></h2></div>
     <div class="svc-grid">
-      <div class="svc rv"><span class="svc-icon">📱</span><div class="svc-title">Marketing Digital</div><div class="svc-desc">Estrategias integrales en canales digitales, campañas de performance y presencia online.</div></div>
-      <div class="svc rv"><span class="svc-icon">✦</span><div class="svc-title">Branding & Identidad</div><div class="svc-desc">Creación y desarrollo de marcas desde el concepto hasta la identidad visual completa.</div></div>
-      <div class="svc rv"><span class="svc-icon">🎬</span><div class="svc-title">Campañas Creativas</div><div class="svc-desc">Diseño y ejecución de campañas publicitarias con enfoque creativo y estratégico.</div></div>
-      <div class="svc rv"><span class="svc-icon">📲</span><div class="svc-title">Social Media</div><div class="svc-desc">Calendarios de contenido, community management y crecimiento orgánico.</div></div>
-      <div class="svc rv"><span class="svc-icon">📈</span><div class="svc-title">Estrategia Comercial</div><div class="svc-desc">Análisis de mercado, posicionamiento competitivo y planes de negocio.</div></div>
-      <div class="svc rv"><span class="svc-icon">✍️</span><div class="svc-title">Contenido Digital</div><div class="svc-desc">Copywriting, storytelling de marca, blog y contenidos para distintos formatos.</div></div>
-      <div class="svc rv"><span class="svc-icon">⚙️</span><div class="svc-title">CRM & Automatización</div><div class="svc-desc">HubSpot, workflows, customer journeys y email marketing automatizado.</div></div>
-      <div class="svc rv"><span class="svc-icon">🏪</span><div class="svc-title">Visual Merchandising</div><div class="svc-desc">Espacios comerciales, experiencia de cliente en punto de venta y retail design.</div></div>
-      <div class="svc rv"><span class="svc-icon">💡</span><div class="svc-title">Dirección Creativa</div><div class="svc-desc">Conceptualización de proyectos y supervisión de identidad visual.</div></div>
-      <div class="svc rv"><span class="svc-icon">🤝</span><div class="svc-title">Desarrollo de Negocio</div><div class="svc-desc">Propuestas de valor, modelos de negocio y planes de lanzamiento.</div></div>
+      <div class="svc rv">
+        <span class="svc-icon">📱</span>
+        <div class="svc-title">Marketing Digital</div>
+        <div class="svc-desc">Estrategias integrales en canales digitales.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Estrategia de contenidos mensual</li><li>Campañas paid media (Meta/Google)</li><li>Analítica y reporting de KPIs</li><li>Calendario editorial y copywriting</li><li>Optimización SEO básica</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">✦</span>
+        <div class="svc-title">Branding & Identidad</div>
+        <div class="svc-desc">Creación de marcas desde concepto hasta identidad visual.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Naming y propuesta de valor</li><li>Manual de identidad visual</li><li>Tono de voz y mensajes clave</li><li>Plantillas para redes sociales</li><li>Estrategia de posicionamiento</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">🎬</span>
+        <div class="svc-title">Campañas Creativas</div>
+        <div class="svc-desc">Diseño y ejecución de campañas con enfoque creativo.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Concepto creativo y storytelling</li><li>Piezas para digital y offline</li><li>Gestión de producción creativa</li><li>Medición y optimización de resultados</li><li>Adaptación por canal y formato</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">📲</span>
+        <div class="svc-title">Social Media</div>
+        <div class="svc-desc">Gestión integral de redes con estrategia y crecimiento orgánico.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Calendario mensual de contenidos</li><li>Community management diario</li><li>Creatividades y copies por plataforma</li><li>Informes mensuales de rendimiento</li><li>Estrategia de crecimiento orgánico</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">📈</span>
+        <div class="svc-title">Estrategia Comercial</div>
+        <div class="svc-desc">Análisis de mercado y planes de negocio accionables.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Análisis PESTEL, Porter y FODA</li><li>Segmentación y targeting</li><li>Plan de negocio completo</li><li>Modelos TAM/SAM/SOM</li><li>Proyecciones financieras</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">✍️</span>
+        <div class="svc-title">Contenido Digital</div>
+        <div class="svc-desc">Copywriting y storytelling de marca para todos los formatos.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Copywriting para web y redes</li><li>Guiones para vídeo y reels</li><li>Artículos de blog y newsletter</li><li>Descripciones de producto</li><li>Presentaciones ejecutivas</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">⚙️</span>
+        <div class="svc-title">CRM & Automatización</div>
+        <div class="svc-desc">HubSpot, workflows, customer journeys y email marketing.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Configuración HubSpot CRM</li><li>Customer journey map</li><li>Workflows y automatizaciones</li><li>Secuencias de email marketing</li><li>Reporting de pipeline y conversiones</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">🏪</span>
+        <div class="svc-title">Visual Merchandising</div>
+        <div class="svc-desc">Espacios comerciales y experiencia de cliente en punto de venta.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Planograma y disposición de espacios</li><li>Señalética y materiales POS</li><li>Propuesta de experiencia de cliente</li><li>Análisis de tráfico en tienda</li><li>Formación de equipos de venta</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">💡</span>
+        <div class="svc-title">Dirección Creativa</div>
+        <div class="svc-desc">Conceptualización y supervisión de identidad visual.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Brief creativo y concepto</li><li>Supervisión de producción visual</li><li>Dirección de shootings</li><li>Control de calidad creativa</li><li>Coherencia de marca en todos los touchpoints</li></ul>
+        </div>
+      </div>
+      <div class="svc rv">
+        <span class="svc-icon">🤝</span>
+        <div class="svc-title">Desarrollo de Negocio</div>
+        <div class="svc-desc">Propuestas de valor, modelos y planes de lanzamiento.</div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body svc-expand">
+          <div class="expand-label">Entregables</div>
+          <ul><li>Modelo de negocio (Canvas)</li><li>Análisis de viabilidad</li><li>Plan de lanzamiento al mercado</li><li>Estrategia de captación inicial</li><li>Propuesta de valor diferencial</li></ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -924,36 +1091,48 @@ section{padding:48px 18px;}
         <div class="impact-title">Comunidad Digital</div>
         <div class="impact-desc">Gestión y crecimiento de perfiles en Instagram, TikTok, Facebook y LinkedIn con estrategia editorial semanal y creatividades adaptadas a cada plataforma.</div>
         <span class="impact-stat">+40% engagement</span>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Gestión de Instagram, TikTok, Facebook y LinkedIn</li><li>Estrategia editorial semanal con creatividades adaptadas</li><li>Crecimiento orgánico con contenido de valor y engagement</li><li>Análisis mensual de métricas y optimización continua</li></ul></div>
       </div>
       <div class="impact-card rv">
         <span class="impact-icon">🎯</span>
         <div class="impact-title">Captación & Leads</div>
         <div class="impact-desc">Diseño de campañas de captación B2B y B2C con landing pages, formularios, workflows HubSpot y secuencias de email marketing automatizadas.</div>
         <span class="impact-stat">+120 leads / campaña</span>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Campañas de captación B2B y B2C con landing pages</li><li>Formularios y workflows HubSpot integrados</li><li>Secuencias de email marketing automatizadas</li><li>Seguimiento y nutrición de leads cualificados</li></ul></div>
       </div>
       <div class="impact-card rv">
         <span class="impact-icon">✦</span>
         <div class="impact-title">Posicionamiento de Marca</div>
         <div class="impact-desc">Desarrollo de identidad visual, naming, mensajes clave y estrategia de comunicación para marcas que pasaron de ser desconocidas a referentes en su sector.</div>
         <span class="impact-stat">0 → Marca reconocida</span>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Desarrollo de identidad visual completa (logo, colores, tipografía)</li><li>Naming, mensajes clave y tono de voz</li><li>Estrategia de comunicación para posicionamiento en sector</li><li>Coherencia de marca en todos los canales y formatos</li></ul></div>
       </div>
       <div class="impact-card rv">
         <span class="impact-icon">📊</span>
         <div class="impact-title">Analítica & Datos</div>
         <div class="impact-desc">Análisis de KPIs, comportamiento de usuario, abandono de carrito y patrones de fraude con informes accionables para mejorar la toma de decisiones.</div>
         <span class="impact-stat">Insights accionables</span>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Análisis de KPIs y comportamiento de usuario</li><li>Detección de patrones de abandono y fraude</li><li>Informes accionables para toma de decisiones</li><li>Dashboards y visualización de datos clave</li></ul></div>
       </div>
       <div class="impact-card rv">
         <span class="impact-icon">⚙️</span>
         <div class="impact-title">Automatización CRM</div>
         <div class="impact-desc">Implementación de flujos automatizados en HubSpot que redujeron el tiempo de respuesta al lead y mejoraron el ratio de cierre del equipo de ventas.</div>
         <span class="impact-stat">-60% tiempo de respuesta</span>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Implementación de flujos en HubSpot</li><li>Customer journey map completo</li><li>Reducción de tiempo de respuesta al lead</li><li>Mejora del ratio de cierre del equipo comercial</li></ul></div>
       </div>
       <div class="impact-card rv">
         <span class="impact-icon">💡</span>
         <div class="impact-title">Estrategia Comercial</div>
         <div class="impact-desc">Planes de negocio completos con análisis TAM/SAM/SOM, PESTEL y modelos financieros que sirvieron de base para decisiones de inversión y lanzamiento.</div>
         <span class="impact-stat">Planes ejecutivos listos</span>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Análisis TAM/SAM/SOM y mercado objetivo</li><li>PESTEL, Porter y análisis competitivo</li><li>Plan de negocio completo con proyecciones financieras</li><li>Propuesta de valor y modelo de negocio Canvas</li></ul></div>
       </div>
     </div>
   </div>
@@ -1261,6 +1440,16 @@ section{padding:48px 18px;}
           <div class="edu-icon">🎓</div>
           <div class="edu-text"><span>Máster en Marketing Digital</span> · ESIC Business & Marketing School · Madrid<br><span style="font-size:11px;opacity:.75;">Ingeniería Comercial · UTEPSA · Bolivia &nbsp;|&nbsp; Inglés Intensivo · ERIN School &nbsp;|&nbsp; Gastronomía Internacional · IGA</span></div>
         </div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Estrategia → contenido → CRM → analítica: todo en un solo profesional</li><li>Capacidad de liderar proyectos integrales sin depender de múltiples agencias</li><li>Experiencia en todas las fases del funnel de marketing</li><li>Visión de negocio combinada con ejecución creativa</li></ul></div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>15+ proyectos con análisis, estrategia y entregables profesionales</li><li>Trabajo con marcas reales en gastronomía, hotelería, belleza y retail</li><li>Capacidad demostrada de convertir ideas en propuestas ejecutivas</li><li>Metodología estructurada de 8 fases para cada proyecto</li></ul></div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Experiencia en 9 sectores distintos</li><li>Capacidad de aprendizaje rápido y adaptación a nuevos entornos</li><li>Trabajo en España, Bolivia e Irlanda (entornos internacionales)</li><li>Flexibilidad para equipos pequeños, medianos y grandes</li></ul></div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Cada idea respaldada por datos y análisis previo</li><li>Combinación de pensamiento creativo y rigor analítico</li><li>Propuestas visuales alineadas con objetivos de negocio</li><li>Resultados medibles: +40% engagement, +120 leads/campaña</li></ul></div>
+        <button class="expand-btn" onclick="toggleExpand(event,this)" title="Ver más">+</button>
+        <div class="expand-body"><ul><li>Máster en Marketing Digital · ESIC Business School · Madrid</li><li>Ingeniería Comercial · UTEPSA · Bolivia</li><li>Formación intensiva en inglés · ERIN School</li><li>Gastronomía Internacional · IGA</li></ul></div>
       </div>
     </div>
   </div>
@@ -1779,6 +1968,24 @@ function openProject(id){
   document.getElementById('pmBox').scrollTop=0;
   document.body.style.overflow='hidden';
 }
+
+function toggleExpand(e, btn) {
+  e.stopPropagation();
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // Close all in same container
+  const container = btn.closest('.exp-timeline, .svc-grid, .impact-grid, .whyme-reasons');
+  if (container) {
+    container.querySelectorAll('.expand-body.open').forEach(b => b.classList.remove('open'));
+    container.querySelectorAll('.expand-btn.open').forEach(b => b.classList.remove('open'));
+  }
+  if (!isOpen) {
+    body.classList.add('open');
+    btn.classList.add('open');
+    btn.textContent = '+';
+  }
+}
+
 function closeProject(){
   document.getElementById('pmOverlay').classList.remove('open');
   document.body.style.overflow='';
