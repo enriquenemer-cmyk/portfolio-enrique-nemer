@@ -266,32 +266,48 @@ blockquote.bq{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,23px
 .exp-tag{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--gold);background:var(--gold3);padding:3px 10px;border-radius:100px;border:1px solid rgba(200,134,10,.2);}
 
 /* PROJECT MODAL */
-.pm-overlay{position:fixed;inset:0;background:rgba(8,8,8,.82);backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .35s;}
+.pm-overlay{position:fixed;inset:0;background:rgba(8,8,8,.88);backdrop-filter:blur(18px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;}
 .pm-overlay.open{opacity:1;pointer-events:all;}
-.pm-box{background:var(--white);border-radius:24px;max-width:920px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(32px) scale(.97);transition:transform .35s cubic-bezier(.175,.885,.32,1.275);}
+.pm-box{background:var(--white);border-radius:28px;max-width:860px;width:100%;max-height:92vh;overflow-y:auto;overflow-x:hidden;position:relative;transform:translateY(40px) scale(.96);transition:transform .4s cubic-bezier(.175,.885,.32,1.275);scrollbar-width:thin;}
 .pm-overlay.open .pm-box{transform:translateY(0) scale(1);}
-.pm-close{position:sticky;top:0;display:flex;justify-content:flex-end;padding:16px 20px 0;z-index:10;}
-.pm-close button{width:38px;height:38px;border:none;background:var(--light);border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.pm-close button:hover{background:var(--black);color:var(--white);}
-.pm-hero{padding:0 40px 0;}
-.pm-hero-top{display:flex;align-items:flex-start;gap:20px;margin-bottom:20px;}
-.pm-emoji{font-size:52px;width:80px;height:80px;display:flex;align-items:center;justify-content:center;border-radius:20px;flex-shrink:0;}
-.pm-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--black);margin-bottom:6px;line-height:1.1;}
-.pm-sector{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:var(--gold3);padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:10px;}
-.pm-tagline{font-size:15px;color:var(--gray);line-height:1.7;}
-.pm-mockup{margin:24px 0;border-radius:16px;overflow:hidden;background:var(--light);border:1px solid var(--border);min-height:220px;display:flex;align-items:stretch;}
-.pm-body{padding:0 40px 40px;}
-.pm-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
-.pm-block{background:var(--light);border-radius:14px;padding:20px 22px;}
-.pm-block h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.pm-block p{font-size:13px;color:var(--dark);line-height:1.7;}
-.pm-deliverables{margin-bottom:24px;}
-.pm-deliverables h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+/* Hero band */
+.pm-band{position:relative;padding:44px 44px 36px;overflow:hidden;border-radius:28px 28px 0 0;}
+.pm-band-bg{position:absolute;inset:0;opacity:.12;}
+.pm-band-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");opacity:.4;}
+.pm-close{position:absolute;top:18px;right:18px;z-index:10;}
+.pm-close button{width:36px;height:36px;border:none;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:50%;font-size:15px;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;border:1px solid rgba(255,255,255,.2);}
+.pm-close button:hover{background:rgba(255,255,255,.35);}
+.pm-band-inner{position:relative;z-index:1;}
+.pm-sector{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.15);backdrop-filter:blur(8px);padding:5px 14px;border-radius:100px;display:inline-block;margin-bottom:16px;border:1px solid rgba(255,255,255,.2);}
+.pm-band-row{display:flex;align-items:center;gap:20px;margin-bottom:16px;}
+.pm-emoji{font-size:48px;width:76px;height:76px;display:flex;align-items:center;justify-content:center;border-radius:18px;flex-shrink:0;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);}
+.pm-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-1px;}
+.pm-tagline{font-size:14px;color:rgba(255,255,255,.72);line-height:1.8;max-width:680px;}
+/* Showcase strip */
+.pm-showcase{margin:0;background:var(--black);padding:0;min-height:200px;overflow:hidden;}
+.pm-showcase svg{display:block;width:100%;}
+/* Body */
+.pm-body{padding:36px 44px 44px;}
+.pm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;}
+.pm-stat{background:var(--light);border-radius:14px;padding:18px 20px;border:1px solid var(--border);text-align:center;}
+.pm-stat-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--black);line-height:1;}
+.pm-stat-lbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-top:5px;}
+.pm-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+.pm-block{border-radius:16px;padding:22px 24px;border:1px solid var(--border);}
+.pm-block.obj{border-left:3px solid var(--gold);background:var(--gold3);}
+.pm-block.res{border-left:3px solid var(--teal);background:rgba(26,107,90,.05);}
+.pm-block h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.pm-block.obj h4{color:var(--gold);}
+.pm-block.res h4{color:var(--teal);}
+.pm-block p{font-size:13px;color:var(--dark);line-height:1.75;}
+.pm-section-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.pm-deliverables{margin-bottom:28px;}
 .pm-del-grid{display:flex;flex-wrap:wrap;gap:8px;}
-.pm-del{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:7px;}
-.pm-del::before{content:'✓';color:var(--gold);font-weight:700;}
-.pm-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;}
-.pm-tool-pill{font-size:11px;font-weight:600;color:var(--white);background:var(--black);padding:4px 12px;border-radius:100px;}
+.pm-del{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:8px 15px;font-size:12px;font-weight:500;color:var(--dark);display:flex;align-items:center;gap:8px;transition:all .2s;}
+.pm-del:hover{border-color:var(--gold);background:var(--gold3);}
+.pm-del::before{content:'✓';color:var(--gold);font-weight:800;font-size:11px;}
+.pm-tools{display:flex;flex-wrap:wrap;gap:7px;}
+.pm-tool-pill{font-size:11px;font-weight:600;color:var(--white);background:var(--dark);padding:5px 14px;border-radius:100px;letter-spacing:.3px;}
 
 /* TOOLS */
 #tools{background:var(--white);}
@@ -1222,26 +1238,32 @@ body{cursor:auto;}.cur,.cur2{display:none;}
 <!-- PROJECT MODAL -->
 <div class="pm-overlay" id="pmOverlay" onclick="if(event.target===this)closeProject()">
   <div class="pm-box" id="pmBox">
-    <div class="pm-close"><button onclick="closeProject()">✕</button></div>
-    <div class="pm-hero">
-      <div class="pm-hero-top">
-        <div class="pm-emoji" id="pmEmoji"></div>
-        <div><div class="pm-sector" id="pmSector"></div><div class="pm-title" id="pmTitle"></div></div>
+    <div class="pm-band" id="pmBand">
+      <div class="pm-band-bg" id="pmBandBg"></div>
+      <div class="pm-band-noise"></div>
+      <div class="pm-close"><button onclick="closeProject()">✕</button></div>
+      <div class="pm-band-inner">
+        <div class="pm-sector" id="pmSector"></div>
+        <div class="pm-band-row">
+          <div class="pm-emoji" id="pmEmoji"></div>
+          <div class="pm-title" id="pmTitle"></div>
+        </div>
+        <p class="pm-tagline" id="pmTagline"></p>
       </div>
-      <p class="pm-tagline" id="pmTagline"></p>
     </div>
-    <div class="pm-mockup" id="pmMockup"></div>
+    <div class="pm-showcase" id="pmMockup"></div>
     <div class="pm-body">
+      <div class="pm-stats" id="pmStats"></div>
       <div class="pm-cols">
-        <div class="pm-block"><h4>Objetivo</h4><p id="pmObj"></p></div>
-        <div class="pm-block"><h4>Resultado</h4><p id="pmRes"></p></div>
+        <div class="pm-block obj"><h4>Objetivo</h4><p id="pmObj"></p></div>
+        <div class="pm-block res"><h4>Resultado</h4><p id="pmRes"></p></div>
       </div>
       <div class="pm-deliverables">
-        <h4>Entregables del proyecto</h4>
+        <div class="pm-section-title">Entregables del proyecto</div>
         <div class="pm-del-grid" id="pmDels"></div>
       </div>
-      <div class="pm-deliverables">
-        <h4>Herramientas & skills</h4>
+      <div class="pm-deliverables" style="margin-bottom:0">
+        <div class="pm-section-title">Herramientas & skills</div>
         <div class="pm-tools" id="pmTools"></div>
       </div>
     </div>
@@ -1496,6 +1518,7 @@ const projects = {
     res:'+40% engagement en redes sociales. Mejora en percepción de marca. Programa de fidelización activo. Participación en desarrollo de app UX.',
     deliverables:['Estrategia de marketing digital','Calendario editorial mensual','Campañas promocionales','Programa de fidelización','Briefing UX para app','Supervisión de sucursales','Análisis de resultados'],
     tools:['Instagram','Meta Business','Canva','Google Analytics','CapCut','Community Management'],
+    stats:[{val:'+40%',lbl:'Engagement'},{val:'3+',lbl:'Sucursales gestionadas'},{val:'360°',lbl:'Estrategia digital'}],
     mockupColor:'#e8401c'},
   2:{emoji:'🌿',sector:'Vending Saludable · España',color:'#1a6b5a',
     title:'Vitaliv',
@@ -1504,6 +1527,7 @@ const projects = {
     res:'Plan de contenido corporativo activo. Mejora en comunicación de marca. Estrategia de captación B2B estructurada.',
     deliverables:['Plan de marketing B2B','Estrategia de contenidos blog','Propuesta de valor corporativa','Material de presentación','Briefing comunicación sostenibilidad'],
     tools:['WordPress','Canva','LinkedIn','Email Marketing','SEO Básico'],
+    stats:[{val:'B2B',lbl:'Enfoque comercial'},{val:'Blog',lbl:'Canal de contenidos'},{val:'100%',lbl:'Marca sostenible'}],
     mockupColor:'#1a6b5a'},
   3:{emoji:'🏨',sector:'Hotelería · Bolivia',color:'#7c4f05',
     title:'Hotel Asturias',
@@ -1512,6 +1536,7 @@ const projects = {
     res:'Aumento de consultas digitales. Mejora de presencia online. Incremento en interacción con potenciales clientes.',
     deliverables:['Rebranding de marca','Nueva identidad visual','Estrategia de captación digital','Gestión redes sociales','Plan de posicionamiento online'],
     tools:['Canva','Meta Business','Google My Business','Instagram','Fotografía de producto'],
+    stats:[{val:'↑',lbl:'Consultas digitales'},{val:'New',lbl:'Identidad visual'},{val:'360°',lbl:'Presencia online'}],
     mockupColor:'#7c4f05'},
   4:{emoji:'🍔',sector:'Gastronomía · Bolivia',color:'#c8860a',
     title:'ByPass Burger',
@@ -1520,6 +1545,7 @@ const projects = {
     res:'Incremento de visibilidad en redes sociales. Mejora en captación mediante campañas. Acciones que impulsaron consumo en puntos de venta.',
     deliverables:['Calendario editorial','Campañas por sucursal','Estrategia de eventos','Contenido promocional','Gestión de comunidad'],
     tools:['Instagram','Facebook','Canva','CapCut','Meta Ads'],
+    stats:[{val:'↑Reach',lbl:'Visibilidad de marca'},{val:'Multi',lbl:'Sucursales'},{val:'Eventos',lbl:'Activaciones'}],
     mockupColor:'#c8860a'},
   5:{emoji:'💅',sector:'Belleza & Estética',color:'#b06ec7',
     title:'Bella Donna Clinic',
@@ -1528,23 +1554,26 @@ const projects = {
     res:'Plan de negocio completo con proyecciones financieras. Propuesta de membresías diseñada y validada.',
     deliverables:['Plan de negocio completo','Modelo de membresías','Análisis financiero','Propuesta de valor','Estrategia CX','Pricing strategy'],
     tools:['Excel','PowerPoint','Análisis financiero','Canvas de negocio'],
+    stats:[{val:'3',lbl:'Tipos de membresía'},{val:'P&L',lbl:'Análisis financiero'},{val:'CX',lbl:'Experiencia de cliente'}],
     mockupColor:'#b06ec7'},
-  6:{emoji:'✂️',sector:'Innovación · Belleza',color:'#e8401c',
+  6:{emoji:'✂️',sector:'Innovación · Belleza',color:'#d63031',
     title:'Dona Bella Mobile',
     tagline:'Concepto disruptivo de peluquería móvil premium. Branding desde cero, propuesta de valor diferenciada y estrategia de lanzamiento.',
     obj:'Crear una marca premium para un servicio de peluquería a domicilio y definir su go-to-market.',
     res:'Branding completo. Propuesta de valor diferenciada. Estrategia de lanzamiento definida.',
     deliverables:['Naming y branding','Manual de identidad','Propuesta de valor','Estrategia de lanzamiento','Pricing y modelo de negocio'],
     tools:['Canva','PowerPoint','Análisis de mercado','Design Thinking'],
-    mockupColor:'#e8401c'},
-  7:{emoji:'🏢',sector:'Agencia de Marketing',color:'#080808',
+    stats:[{val:'0→1',lbl:'Marca creada'},{val:'Premium',lbl:'Posicionamiento'},{val:'GTM',lbl:'Plan de lanzamiento'}],
+    mockupColor:'#d63031'},
+  7:{emoji:'🏢',sector:'Agencia de Marketing',color:'#2d3436',
     title:'Omnia Marketing',
     tagline:'Creación de agencia de marketing digital desde cero. Branding corporativo, catálogo de servicios, estructura de precios y estrategia de captación de clientes.',
     obj:'Diseñar la identidad y modelo operativo de una agencia de marketing lista para operar.',
     res:'Agencia estructurada con branding, servicios definidos y estrategia de captación lista.',
     deliverables:['Branding corporativo','Catálogo de servicios','Estructura de precios','Propuesta comercial','Web concept','Plan de captación'],
     tools:['Canva','PowerPoint','HubSpot','LinkedIn','Estrategia digital'],
-    mockupColor:'#080808'},
+    stats:[{val:'0→1',lbl:'Agencia creada'},{val:'6+',lbl:'Servicios definidos'},{val:'Full',lbl:'Branding corporativo'}],
+    mockupColor:'#2d3436'},
   8:{emoji:'☕',sector:'Retail · Bolivia',color:'#1e3a2f',
     title:'Starbucks Bolivia',
     tagline:'Análisis de visual merchandising, retail design y propuesta de mejoras para la experiencia en tienda de la franquicia en Bolivia.',
@@ -1552,23 +1581,26 @@ const projects = {
     res:'Propuesta de mejoras implementables. Análisis de customer journey en tienda. Recomendaciones de display y layout.',
     deliverables:['Auditoría de tienda','Propuesta visual merchandising','Customer journey en tienda','Análisis de competidores','Recomendaciones de mejora'],
     tools:['PowerPoint','Fotografía','Análisis CX','Retail Analytics'],
+    stats:[{val:'CX',lbl:'Customer journey'},{val:'VM',lbl:'Visual merchandising'},{val:'↑',lbl:'Experiencia tienda'}],
     mockupColor:'#1e3a2f'},
-  9:{emoji:'⚙️',sector:'CRM & Automatización',color:'#1a6b5a',
+  9:{emoji:'⚙️',sector:'CRM & Automatización',color:'#00897b',
     title:'Pleo — CRM & Automatización',
     tagline:'Implementación integral de HubSpot CRM para empresa de gestión de gastos. Customer journey, workflows de automatización, landing pages y email sequences.',
     obj:'Optimizar captación y nurturing de leads con un sistema CRM completo y automatizado.',
     res:'Sistema CRM completo implementado. Workflows activos. Customer journey mapeado. Pipeline de ventas estructurado.',
     deliverables:['Implementación HubSpot','Customer journey map','Workflows de automatización','Landing pages','Email sequences','Pipeline de ventas','KPIs y reporting'],
     tools:['HubSpot','Email Marketing','Google Analytics','Copywriting','CRM','Automatización'],
-    mockupColor:'#1a6b5a'},
-  10:{emoji:'📊',sector:'Social Media',color:'#3b5998',
+    stats:[{val:'-60%',lbl:'Tiempo respuesta lead'},{val:'Auto',lbl:'Workflows activos'},{val:'Full',lbl:'Pipeline mapeado'}],
+    mockupColor:'#00897b'},
+  10:{emoji:'📊',sector:'Social Media',color:'#1565c0',
     title:'Konverting.io',
     tagline:'Social Media Plan completo con estrategia de captación, contenidos orientados a leads cualificados, KPIs y optimización de canales.',
     obj:'Generar leads cualificados a través de social media con contenido estratégico y medición de resultados.',
     res:'Plan de social media estructurado. KPIs definidos. Estrategia de captación activa.',
     deliverables:['Social Media Plan','Estrategia de contenidos','KPIs y métricas','Calendario editorial','Estrategia de captación','Análisis de audiencia'],
     tools:['Meta Business','LinkedIn','Instagram','Google Analytics','Hootsuite','Canva'],
-    mockupColor:'#3b5998'},
+    stats:[{val:'Leads',lbl:'Objetivo principal'},{val:'KPIs',lbl:'Métricas definidas'},{val:'Multi',lbl:'Canales gestionados'}],
+    mockupColor:'#1565c0'},
   11:{emoji:'🌿',sector:'Campaña Display',color:'#2e7d32',
     title:'Mediterranean Natural',
     tagline:'Campaña de display para marca de productos naturales. Estrategia de medios, selección de soportes, KPIs y plan de contingencia.',
@@ -1576,6 +1608,7 @@ const projects = {
     res:'Campaña planificada con estrategia de medios completa y plan de contingencia definido.',
     deliverables:['Plan de medios display','Selección de soportes','KPIs y métricas','Piezas creativas (brief)','Plan de contingencia','Análisis de audiencia'],
     tools:['Google Display','Canva','Media Planning','Google Analytics','Programática'],
+    stats:[{val:'Display',lbl:'Canal principal'},{val:'ROI',lbl:'Objetivo medible'},{val:'B2C',lbl:'Enfoque audiencia'}],
     mockupColor:'#2e7d32'},
   12:{emoji:'🔍',sector:'Analítica de Datos',color:'#37474f',
     title:'Fraude en Seguros',
@@ -1584,87 +1617,108 @@ const projects = {
     res:'Modelo analítico con variables identificadas. Visualizaciones de datos. Informe con conclusiones accionables.',
     deliverables:['Análisis univariado','Análisis bivariado','Análisis multivariado','Visualizaciones de datos','Informe ejecutivo','Dashboard de KPIs'],
     tools:['Excel','Power BI','Estadística','Análisis de datos','Reporting'],
+    stats:[{val:'3',lbl:'Tipos de análisis'},{val:'Data',lbl:'Decisiones basadas en datos'},{val:'BI',lbl:'Dashboard creado'}],
     mockupColor:'#37474f'},
-  13:{emoji:'🌾',sector:'Estrategia de Mercado',color:'#5d4037',
+  13:{emoji:'🌾',sector:'Estrategia de Mercado',color:'#6d4c41',
     title:'Finca La Torre',
     tagline:'Análisis estratégico completo para empresa agrícola. PESTEL, Porter, análisis de competidores, TAM/SAM/SOM y dimensionamiento del mercado potencial.',
     obj:'Evaluar el entorno competitivo y el potencial de mercado para definir la estrategia de expansión.',
     res:'Análisis estratégico completo. Mercado potencial cuantificado. Posicionamiento competitivo definido.',
     deliverables:['Análisis PESTEL','5 Fuerzas de Porter','FODA','TAM/SAM/SOM','Análisis de competidores','Propuesta estratégica'],
     tools:['PowerPoint','Excel','Análisis estratégico','Research de mercado'],
-    mockupColor:'#5d4037'},
-  14:{emoji:'🛒',sector:'E-commerce',color:'#1565c0',
+    stats:[{val:'6',lbl:'Frameworks aplicados'},{val:'TAM',lbl:'Mercado cuantificado'},{val:'360°',lbl:'Análisis entorno'}],
+    mockupColor:'#6d4c41'},
+  14:{emoji:'🛒',sector:'E-commerce',color:'#1976d2',
     title:'LG E-commerce',
     tagline:'Análisis de conversión y experiencia de usuario para tienda online de LG. Diagnóstico de abandono de carrito, fricción en el funnel y propuestas de mejora UX.',
     obj:'Mejorar la tasa de conversión e identificar puntos de fricción en el funnel de compra online.',
     res:'Diagnóstico completo de UX. Puntos de fricción identificados. Propuestas de mejora priorizadas.',
     deliverables:['Análisis de conversión','Mapa de funnel','Diagnóstico abandono carrito','Heatmap analysis (brief)','Propuestas UX','A/B test recommendations'],
     tools:['Google Analytics','Hotjar','UX Research','Excel','PowerPoint'],
-    mockupColor:'#1565c0'},
-  15:{emoji:'🤝',sector:'Responsabilidad Social',color:'#2e7d32',
+    stats:[{val:'UX',lbl:'Auditoría completa'},{val:'Funnel',lbl:'Mapeado completo'},{val:'↑CVR',lbl:'Conversión objetivo'}],
+    mockupColor:'#1976d2'},
+  15:{emoji:'🤝',sector:'Responsabilidad Social',color:'#388e3c',
     title:'Proyecto Social',
     tagline:'Acción comunitaria, informe académico y análisis de impacto social. Reflexión sobre responsabilidad social empresarial y propuesta de valor compartido.',
     obj:'Diseñar una acción de RSC con impacto medible y comunicación transparente hacia stakeholders.',
     res:'Informe académico completo. Acción comunitaria planificada. Marco de valor compartido definido.',
     deliverables:['Plan de acción RSC','Informe académico','Análisis de stakeholders','Propuesta de valor compartido','Comunicación de impacto'],
     tools:['PowerPoint','Research académico','Análisis de impacto','Comunicación corporativa'],
-    mockupColor:'#2e7d32'},
+    stats:[{val:'RSC',lbl:'Responsabilidad social'},{val:'Impact',lbl:'Valor medible'},{val:'Comunidad',lbl:'Foco social'}],
+    mockupColor:'#388e3c'},
 };
 
 function buildMockup(p){
   const c=p.mockupColor;
-  return `<svg width="100%" height="220" viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
-    <rect width="860" height="220" fill="${c}11"/>
-    <!-- browser bar -->
-    <rect x="20" y="16" width="520" height="188" rx="10" fill="${c}18" stroke="${c}33" stroke-width="1"/>
-    <rect x="20" y="16" width="520" height="32" rx="10" fill="${c}25"/>
-    <rect x="20" y="36" width="520" height="12" fill="${c}25"/>
-    <circle cx="38" cy="32" r="5" fill="${c}55"/><circle cx="54" cy="32" r="5" fill="${c}44"/><circle cx="70" cy="32" r="5" fill="${c}33"/>
-    <rect x="90" y="24" width="300" height="16" rx="8" fill="${c}22"/>
-    <!-- content blocks -->
-    <rect x="36" y="60" width="220" height="14" rx="4" fill="${c}55"/>
-    <rect x="36" y="82" width="160" height="10" rx="4" fill="${c}33"/>
-    <rect x="36" y="100" width="180" height="10" rx="4" fill="${c}22"/>
-    <rect x="36" y="118" width="140" height="10" rx="4" fill="${c}22"/>
-    <rect x="36" y="142" width="80" height="28" rx="6" fill="${c}"/>
-    <rect x="36" y="142" width="80" height="28" rx="6" fill="${c}" opacity=".85"/>
-    <!-- image placeholder -->
-    <rect x="290" y="54" width="230" height="130" rx="8" fill="${c}22" stroke="${c}33" stroke-width="1"/>
-    <text x="405" y="125" text-anchor="middle" font-size="36" opacity=".3">${p.emoji}</text>
-    <!-- phone mockup -->
-    <rect x="570" y="14" width="90" height="160" rx="12" fill="${c}18" stroke="${c}44" stroke-width="1.5"/>
-    <rect x="578" y="28" width="74" height="100" rx="4" fill="${c}22"/>
-    <text x="615" y="85" text-anchor="middle" font-size="24" opacity=".4">${p.emoji}</text>
-    <rect x="588" y="136" width="54" height="8" rx="4" fill="${c}33"/>
-    <rect x="596" y="150" width="38" height="8" rx="4" fill="${c}22"/>
-    <!-- stats cards -->
-    <rect x="680" y="14" width="160" height="52" rx="10" fill="${c}18" stroke="${c}33" stroke-width="1"/>
-    <rect x="692" y="26" width="60" height="10" rx="3" fill="${c}55"/>
-    <rect x="692" y="42" width="40" height="8" rx="3" fill="${c}33"/>
-    <rect x="680" y="78" width="160" height="52" rx="10" fill="${c}18" stroke="${c}33" stroke-width="1"/>
-    <rect x="692" y="90" width="60" height="10" rx="3" fill="${c}55"/>
-    <rect x="692" y="106" width="40" height="8" rx="3" fill="${c}33"/>
-    <rect x="680" y="142" width="160" height="52" rx="10" fill="${c}18" stroke="${c}33" stroke-width="1"/>
-    <rect x="692" y="154" width="60" height="10" rx="3" fill="${c}55"/>
-    <rect x="692" y="170" width="40" height="8" rx="3" fill="${c}33"/>
-    <!-- label -->
-    <text x="860" y="215" text-anchor="end" font-family="Inter,sans-serif" font-size="11" fill="${c}" opacity=".5" font-weight="600">${p.title.toUpperCase()}</text>
+  const dels=p.deliverables.slice(0,4);
+  // Build deliverable label pills in SVG
+  const pills=dels.map((d,i)=>{
+    const x=30+i*190, y=68;
+    const w=Math.min(d.length*6.5+24,180);
+    return `<rect x="${x}" y="${y}" width="${w}" height="26" rx="13" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+    <text x="${x+w/2}" y="${y+17}" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,.75)" font-weight="600">${d.length>20?d.slice(0,18)+'…':d}</text>`;
+  }).join('');
+  return `<svg width="100%" height="180" viewBox="0 0 860 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${c}" stop-opacity=".9"/>
+        <stop offset="100%" stop-color="${c}" stop-opacity=".4"/>
+      </linearGradient>
+      <linearGradient id="mg2" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="${c}"/>
+        <stop offset="100%" stop-color="#000"/>
+      </linearGradient>
+    </defs>
+    <rect width="860" height="180" fill="#0d0d0d"/>
+    <rect width="860" height="180" fill="url(#mg2)" opacity=".35"/>
+    <!-- Grid lines -->
+    <line x1="0" y1="45" x2="860" y2="45" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+    <line x1="0" y1="90" x2="860" y2="90" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+    <line x1="0" y1="135" x2="860" y2="135" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+    <line x1="215" y1="0" x2="215" y2="180" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+    <line x1="430" y1="0" x2="430" y2="180" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+    <line x1="645" y1="0" x2="645" y2="180" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+    <!-- Big emoji -->
+    <text x="50" y="52" font-size="38" opacity=".9">${p.emoji}</text>
+    <!-- Title -->
+    <text x="108" y="42" font-family="Playfair Display,serif" font-size="22" fill="white" font-weight="700" opacity=".9">${p.title}</text>
+    <text x="108" y="60" font-family="Inter,sans-serif" font-size="11" fill="${c}" font-weight="700" letter-spacing="1" opacity=".9">${p.sector.toUpperCase()}</text>
+    <!-- Divider -->
+    <line x1="30" y1="112" x2="830" y2="112" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+    <!-- Pills row -->
+    <text x="30" y="148" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,.3)" font-weight="700" letter-spacing="2">ENTREGABLES</text>
+    ${pills}
+    <!-- Accent bar -->
+    <rect x="0" y="0" width="4" height="180" fill="${c}"/>
+    <!-- Right deco -->
+    <circle cx="800" cy="90" r="70" fill="${c}" opacity=".06"/>
+    <circle cx="800" cy="90" r="40" fill="${c}" opacity=".06"/>
+    <text x="800" y="102" text-anchor="middle" font-size="32" opacity=".15">${p.emoji}</text>
   </svg>`;
 }
 
 function openProject(id){
   const p=projects[id];if(!p)return;
+  const c=p.mockupColor;
+  // Band gradient background
+  const band=document.getElementById('pmBand');
+  band.style.background=`linear-gradient(135deg, ${c}ee 0%, ${c}99 50%, #0d0d0d 100%)`;
+  document.getElementById('pmBandBg').style.background=`radial-gradient(circle at 80% 50%, ${c}, transparent 70%)`;
   document.getElementById('pmEmoji').textContent=p.emoji;
-  document.getElementById('pmEmoji').style.background=p.mockupColor+'22';
   document.getElementById('pmSector').textContent=p.sector;
   document.getElementById('pmTitle').textContent=p.title;
   document.getElementById('pmTagline').textContent=p.tagline;
   document.getElementById('pmObj').textContent=p.obj;
   document.getElementById('pmRes').textContent=p.res;
   document.getElementById('pmMockup').innerHTML=buildMockup(p);
+  // Stats
+  const statsHtml=(p.stats||[]).map(s=>`<div class="pm-stat"><div class="pm-stat-val" style="color:${c}">${s.val}</div><div class="pm-stat-lbl">${s.lbl}</div></div>`).join('');
+  document.getElementById('pmStats').innerHTML=statsHtml;
+  document.getElementById('pmStats').style.display=p.stats?'grid':'none';
   document.getElementById('pmDels').innerHTML=p.deliverables.map(d=>`<div class="pm-del">${d}</div>`).join('');
   document.getElementById('pmTools').innerHTML=p.tools.map(t=>`<span class="pm-tool-pill">${t}</span>`).join('');
   document.getElementById('pmOverlay').classList.add('open');
+  document.getElementById('pmBox').scrollTop=0;
   document.body.style.overflow='hidden';
 }
 function closeProject(){
