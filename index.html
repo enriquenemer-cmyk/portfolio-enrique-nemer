@@ -244,6 +244,27 @@ blockquote.bq{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,23px
 .sec-card:hover .sec-icon{transform:scale(1.2) rotate(-6deg);}
 .sec-name{font-size:12px;font-weight:700;color:var(--dark);line-height:1.3;transition:color .3s;}
 
+/* EXPERIENCE TIMELINE */
+#experience{background:var(--light);}
+.exp-timeline{position:relative;padding-left:28px;}
+.exp-timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold2),var(--border));border-radius:2px;}
+.exp-item{position:relative;margin-bottom:28px;}
+.exp-dot{position:absolute;left:-23px;top:22px;width:14px;height:14px;background:var(--gold);border-radius:50%;border:3px solid var(--white);box-shadow:0 0 0 2px var(--gold);}
+.exp-dot-gray{background:var(--gray);box-shadow:0 0 0 2px var(--gray);}
+.exp-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px 28px;transition:all .3s;border-left:3px solid var(--gold);}
+.exp-card:hover{box-shadow:0 8px 32px rgba(200,134,10,.12);transform:translateX(4px);}
+.exp-card-light{border-left-color:var(--border);}
+.exp-card-light:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:12px;}
+.exp-company{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--black);}
+.exp-role{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.4px;margin-top:2px;}
+.exp-meta{flex-shrink:0;}
+.exp-loc{font-size:11px;color:var(--gray);background:var(--light);padding:4px 10px;border-radius:100px;border:1px solid var(--border);}
+.exp-list{margin:0 0 12px 16px;padding:0;}
+.exp-list li{font-size:13px;color:var(--gray);margin-bottom:4px;line-height:1.6;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.exp-tag{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--gold);background:var(--gold3);padding:3px 10px;border-radius:100px;border:1px solid rgba(200,134,10,.2);}
+
 /* TOOLS */
 #tools{background:var(--white);}
 .tools-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;margin-top:60px;}
@@ -459,6 +480,7 @@ body{cursor:auto;}.cur,.cur2{display:none;}
   <div class="logo">EN<span>.</span></div>
   <ul class="nav-links">
     <li><a href="#about">Perfil</a></li>
+          <li><a href="#experience">Experiencia</a></li>
     <li><a href="#results">Resultados</a></li>
     <li><a href="#projects">Proyectos</a></li>
     <li><a href="#charts">Estadísticas</a></li>
@@ -529,7 +551,7 @@ body{cursor:auto;}.cur,.cur2{display:none;}
         <div class="about-frame">
           <img src="foto.jpg" alt="Enrique Nemer Medina" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0;border-radius:20px;" onerror="this.style.display='none'">
           <div class="about-initials" id="aboutInitials">ENM</div>
-          <div class="about-badge-inner"><h3>Enrique Nemer Medina</h3><p>Graduado ESIC · Marketing & Branding</p></div>
+          <div class="about-badge-inner"><h3>Enrique Nemer Medina</h3><p>Máster Marketing Digital · ESIC</p><p style="font-size:11px;opacity:.7;margin-top:2px;">Ing. Comercial · UTEPSA</p></div>
         </div>
         <div class="float-badge"><div class="fn">15+</div><div class="fl">Proyectos</div></div>
         <!-- Mini donuts -->
@@ -552,6 +574,177 @@ body{cursor:auto;}.cur,.cur2{display:none;}
           <div class="hi"><div class="hi-icon">🎨</div><div class="hi-text">Dirección creativa y branding integral</div></div>
           <div class="hi"><div class="hi-icon">📊</div><div class="hi-text">Analítica de datos y toma de decisiones</div></div>
           <div class="hi"><div class="hi-icon">🚀</div><div class="hi-text">Desarrollo de proyectos desde cero</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="rv" style="margin-bottom:56px;">
+      <div class="sec-label">Trayectoria</div>
+      <h2 class="sec-title">Experiencia <span class="g">profesional</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-item rv">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Tierra Burrito Bar</div>
+              <div class="exp-role">Marketing & Comunicación</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇪🇸 España</span></div>
+          </div>
+          <ul class="exp-list">
+            <li>Desarrollo e implementación de estrategias de marketing digital</li>
+            <li>Creación de contenido para redes sociales y campañas promocionales</li>
+            <li>Diseño de acciones de fidelización y experiencia de cliente</li>
+            <li>Participación en el desarrollo de app (UX + comunicación)</li>
+            <li>Supervisión de sucursales y mejora de procesos operativos</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Social Media</span><span class="exp-tag">Fidelización</span><span class="exp-tag">CX</span><span class="exp-tag">Supervisión</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Vitaliv</div>
+              <div class="exp-role">Prácticas — Marketing & Comunicación</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇪🇸 España</span></div>
+          </div>
+          <ul class="exp-list">
+            <li>Desarrollo de estrategias de marketing y contenido</li>
+            <li>Apoyo en operaciones y logística</li>
+            <li>Mejora en la comunicación de marca e incremento de visibilidad</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Marketing B2B</span><span class="exp-tag">Contenido</span><span class="exp-tag">Sostenibilidad</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">By Pass Burger</div>
+              <div class="exp-role">Encargado de Marketing & Comunicación</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇧🇴 Bolivia</span></div>
+          </div>
+          <ul class="exp-list">
+            <li>Gestión de estrategias de marketing y posicionamiento</li>
+            <li>Desarrollo de campañas promocionales y contenido digital</li>
+            <li>Incremento de visibilidad de marca en redes sociales</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Campañas</span><span class="exp-tag">Posicionamiento</span><span class="exp-tag">Digital</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Hotel Asturias</div>
+              <div class="exp-role">Encargado de Marketing & Comunicación</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇧🇴 Bolivia</span></div>
+          </div>
+          <ul class="exp-list">
+            <li>Planificación y ejecución de estrategias de captación</li>
+            <li>Gestión de comunicación y posicionamiento digital</li>
+            <li>Aumento de consultas y reservas a través de canales digitales</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Hotelería</span><span class="exp-tag">Captación</span><span class="exp-tag">Branding</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">One Fitness Club</div>
+              <div class="exp-role">Equipo Comercial</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇧🇴 Bolivia</span></div>
+          </div>
+          <ul class="exp-list">
+            <li>Captación y fidelización de clientes</li>
+            <li>Apoyo en estrategias comerciales</li>
+            <li>Incremento en conversión de interesados a clientes activos</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Ventas</span><span class="exp-tag">Fidelización</span><span class="exp-tag">Fitness</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Criss</div>
+              <div class="exp-role">Área Administrativa, Supervisión y Marketing</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇧🇴 Bolivia</span></div>
+          </div>
+          <ul class="exp-list">
+            <li>Gestión administrativa y supervisión operativa</li>
+            <li>Apoyo en acciones de marketing y comunicación</li>
+            <li>Mejora en organización interna y control de procesos</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Administración</span><span class="exp-tag">Supervisión</span><span class="exp-tag">Operaciones</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot exp-dot-gray"></div>
+        <div class="exp-card exp-card-light">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Blarney Burgers</div>
+              <div class="exp-role">Chef</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇮🇪 Irlanda</span></div>
+          </div>
+          <ul class="exp-list"><li>Experiencia internacional en entorno gastronómico de alta demanda</li></ul>
+          <div class="exp-tags"><span class="exp-tag">Internacional</span><span class="exp-tag">Gastronomía</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot exp-dot-gray"></div>
+        <div class="exp-card exp-card-light">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Donnatello's Pizza</div>
+              <div class="exp-role">Chef</div>
+            </div>
+            <div class="exp-meta"><span class="exp-loc">🇮🇪 Irlanda</span></div>
+          </div>
+          <ul class="exp-list"><li>Elaboración de productos y control de calidad en entorno internacional</li></ul>
+          <div class="exp-tags"><span class="exp-tag">Internacional</span><span class="exp-tag">Calidad</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot exp-dot-gray"></div>
+        <div class="exp-card exp-card-light">
+          <div class="exp-header">
+            <div><div class="exp-company">ENTEL</div><div class="exp-role">Prácticas — Servicios Generales</div></div>
+            <div class="exp-meta"><span class="exp-loc">🇧🇴 Bolivia</span></div>
+          </div>
+          <div class="exp-tags"><span class="exp-tag">Prácticas</span><span class="exp-tag">Telecomunicaciones</span></div>
+        </div>
+      </div>
+      <div class="exp-item rv">
+        <div class="exp-dot exp-dot-gray"></div>
+        <div class="exp-card exp-card-light">
+          <div class="exp-header">
+            <div><div class="exp-company">Agroterra</div><div class="exp-role">Prácticas — Servicios Generales</div></div>
+            <div class="exp-meta"><span class="exp-loc">🇧🇴 Bolivia</span></div>
+          </div>
+          <div class="exp-tags"><span class="exp-tag">Prácticas</span><span class="exp-tag">Agroindustria</span></div>
         </div>
       </div>
     </div>
@@ -695,7 +888,8 @@ body{cursor:auto;}.cur,.cur2{display:none;}
       <div class="skill-pills-col">
         <div class="sk-group rvr"><div class="sk-gtitle">Estrategia & Planificación</div><div class="sk-pills"><span class="sk-pill">Estrategia de contenidos</span><span class="sk-pill">Planificación editorial</span><span class="sk-pill">Análisis de mercado</span><span class="sk-pill">Segmentación</span><span class="sk-pill">PESTEL · Porter · FODA</span><span class="sk-pill">TAM · SAM · SOM</span><span class="sk-pill">Plan de negocio completo</span></div></div>
         <div class="sk-group rvr"><div class="sk-gtitle">Creatividad & Comunicación</div><div class="sk-pills"><span class="sk-pill">Copywriting</span><span class="sk-pill">Campañas promocionales</span><span class="sk-pill">Branding & Rebranding</span><span class="sk-pill">Storytelling</span><span class="sk-pill">Presentaciones ejecutivas</span><span class="sk-pill">Dirección creativa</span><span class="sk-pill">Naming</span></div></div>
-        <div class="sk-group rvr"><div class="sk-gtitle">Digital & Tecnología</div><div class="sk-pills"><span class="sk-pill">Email marketing</span><span class="sk-pill">HubSpot CRM</span><span class="sk-pill">Customer journey</span><span class="sk-pill">Analítica web</span><span class="sk-pill">IA Marketing</span><span class="sk-pill">SEO básico</span><span class="sk-pill">Automatización</span></div></div>
+        <div class="sk-group rvr"><div class="sk-gtitle">Digital & Tecnología</div><div class="sk-pills"><span class="sk-pill">Email marketing</span><span class="sk-pill">HubSpot CRM</span><span class="sk-pill">Customer journey</span><span class="sk-pill">Analítica web</span><span class="sk-pill">IA Marketing</span><span class="sk-pill">SEO básico</span><span class="sk-pill">Automatización</span><span class="sk-pill">WordPress</span><span class="sk-pill">Xcode (Intermedio)</span></div></div>
+        <div class="sk-group rvr"><div class="sk-gtitle">Idiomas</div><div class="sk-pills"><span class="sk-pill" style="border-color:var(--gold);color:var(--gold);">🇪🇸 Español — Nativo</span><span class="sk-pill" style="border-color:var(--teal);color:var(--teal);">🇬🇧 Inglés — Intermedio</span><span class="sk-pill" style="border-color:#7c3d90;color:#7c3d90;">🇧🇷 Portugués — Básico</span></div></div>
       </div>
     </div>
   </div>
@@ -880,6 +1074,7 @@ body{cursor:auto;}.cur,.cur2{display:none;}
       <div class="tool rv"><span class="tool-icon">🔍</span><div class="tool-name">SEO</div></div>
       <div class="tool rv"><span class="tool-icon">📧</span><div class="tool-name">Email Marketing</div></div>
       <div class="tool rv"><span class="tool-icon">📅</span><div class="tool-name">Calendarios</div></div>
+      <div class="tool rv"><span class="tool-icon">📱</span><div class="tool-name">Xcode</div></div>
     </div>
   </div>
 </section>
@@ -962,7 +1157,7 @@ body{cursor:auto;}.cur,.cur2{display:none;}
         </div>
         <div class="edu-badge">
           <div class="edu-icon">🎓</div>
-          <div class="edu-text">Graduado en <span>Marketing & Comunicación</span><br>ESIC Business & Marketing School · Madrid</div>
+          <div class="edu-text"><span>Máster en Marketing Digital</span> · ESIC Business & Marketing School · Madrid<br><span style="font-size:11px;opacity:.75;">Ingeniería Comercial · UTEPSA · Bolivia &nbsp;|&nbsp; Inglés Intensivo · ERIN School &nbsp;|&nbsp; Gastronomía Internacional · IGA</span></div>
         </div>
       </div>
     </div>
@@ -979,7 +1174,7 @@ body{cursor:auto;}.cur,.cur2{display:none;}
         <p class="con-tagline">Disponible para colaborar en proyectos de marketing, branding, contenido, estrategia digital y desarrollo de negocio.</p>
         <div class="con-info">
           <div class="con-row"><div class="con-icon">📍</div><div><div class="con-lbl">Ubicación</div><div class="con-val">Madrid, España</div></div></div>
-          <div class="con-row"><div class="con-icon">✉️</div><div><div class="con-lbl">Email</div><div class="con-val">enrique_nemer@hotmail.com</div></div></div>
+          <div class="con-row"><div class="con-icon">✉️</div><div><div class="con-lbl">Email</div><div class="con-val">enriquenemer@gmail.com</div></div></div>
           <div class="con-row"><div class="con-icon">📱</div><div><div class="con-lbl">Teléfono</div><div class="con-val">+34 667 400 951</div></div></div>
           <a href="https://www.linkedin.com/in/enrique-nemer-medina-036b22242" target="_blank" class="con-row"><div class="con-icon">💼</div><div><div class="con-lbl">LinkedIn</div><div class="con-val">linkedin.com/in/enrique-nemer-medina</div></div></a>
         </div>
@@ -990,7 +1185,7 @@ body{cursor:auto;}.cur,.cur2{display:none;}
         <p>Marketing Digital · Branding · Estrategia Comercial · Contenido · Dirección Creativa</p>
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:10px;">Colaboración en</div>
         <div class="col-tags"><span class="col-tag">Marketing Digital</span><span class="col-tag">Branding</span><span class="col-tag">Contenido</span><span class="col-tag">Estrategia</span><span class="col-tag">Social Media</span><span class="col-tag">CRM</span><span class="col-tag">Campañas</span><span class="col-tag">Consultoría</span></div>
-        <a href="mailto:enrique_nemer@hotmail.com" class="cta">Enviar mensaje →</a>
+        <a href="mailto:enriquenemer@gmail.com" class="cta">Enviar mensaje →</a>
       </div>
     </div>
   </div>
