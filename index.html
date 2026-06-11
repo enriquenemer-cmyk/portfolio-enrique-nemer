@@ -458,11 +458,71 @@ footer{background:var(--black);padding:38px 60px;display:flex;align-items:center
 .edu-text{font-size:12px;font-weight:600;color:var(--dark);line-height:1.4;}
 .edu-text span{color:var(--gold);font-weight:700;}
 
+/* HERO PHOTO */
+.hero-photo-wrap{position:relative;width:100%;max-width:340px;margin:0 auto;}
+.hero-photo-frame{border-radius:24px;overflow:hidden;aspect-ratio:3/4;background:linear-gradient(135deg,var(--gold),#3a1f02);position:relative;}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.hero-photo-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:80px;font-weight:900;color:rgba(255,255,255,.15);}
+.hero-stat-badge{position:absolute;background:rgba(255,255,255,.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:10px 16px;color:var(--white);}
+.hsb1{bottom:20px;left:-20px;}
+.hsb2{top:24px;right:-20px;}
+.hsb3{bottom:90px;right:-24px;}
+.hsb-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold2);display:block;line-height:1;}
+.hsb-lbl{font-size:10px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.5px;margin-top:2px;display:block;}
+.hsb-txt{font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:.5px;}
+
+/* PROJECT FILTERS */
+.proj-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;align-items:center;}
+.pf-count{font-size:12px;color:var(--gray);margin-left:auto;font-weight:500;}
+.pf-btn{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:8px 18px;border-radius:100px;border:1.5px solid var(--border);background:var(--white);color:var(--gray);cursor:pointer;transition:all .2s;}
+.pf-btn:hover{border-color:var(--gold);color:var(--gold);}
+.pf-btn.active{background:var(--black);color:var(--white);border-color:var(--black);}
+.proj-card.hidden{display:none;}
+
+/* PROJECT CONTEXT BADGE */
+.proj-tipo{position:absolute;top:10px;left:10px;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:100px;z-index:2;}
+.tipo-real{background:rgba(26,107,90,.85);color:#7effd4;border:1px solid rgba(126,255,212,.3);}
+.tipo-esic{background:rgba(200,134,10,.85);color:#fff3c4;border:1px solid rgba(255,243,196,.3);}
+.tipo-practicas{background:rgba(100,100,100,.8);color:#e0e0e0;border:1px solid rgba(224,224,224,.3);}
+
+/* MODAL STAGGER ANIMATION */
+.pm-band{animation:none;}
+.pm-overlay.open .pm-band{animation:fadeUp .4s ease both;}
+.pm-overlay.open .pm-showcase{animation:fadeUp .4s .08s ease both;}
+.pm-overlay.open .pm-stats{animation:fadeUp .35s .16s ease both;}
+.pm-overlay.open .pm-cols{animation:fadeUp .35s .22s ease both;}
+.pm-overlay.open .pm-deliverables{animation:fadeUp .35s .28s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* HAMBURGER NAV */
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none;}
+.nav-ham span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s;}
+.nav-mobile{display:none;position:fixed;inset:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{font-size:22px;font-weight:700;color:var(--dark);text-decoration:none;font-family:'Playfair Display',serif;}
+.nav-mobile a:hover{color:var(--gold);}
+.nav-mobile-close{position:absolute;top:24px;right:24px;font-size:24px;cursor:pointer;background:none;border:none;}
+
+/* PRINT / CV */
+@media print{
+  nav,#hero canvas,.cur,.cur2,.float-cta,#results,#skills,#charts,#methodology,#sectors,#tools,#value,#whyme,#contact,footer,#experience,.mq,section:not(#about):not(#projects){display:none!important;}
+  body{background:white;color:#000;}
+  #about,#projects{padding:20px 0;page-break-inside:avoid;}
+  .about-grid{grid-template-columns:1fr 2fr;gap:30px;}
+  .proj-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+  .proj-vis{height:60px;}
+  .pm-overlay{display:none!important;}
+  nav{display:flex!important;position:static;border-bottom:2px solid #000;padding:12px 0;}
+}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
-nav{padding:0 28px;}section{padding:72px 28px;}
-.hero-grid,.about-grid,.con-grid,.skills-wrap{grid-template-columns:1fr;gap:48px;}
-.hero-right,.about-visual{display:none;}
+nav{padding:0 24px;}
+section{padding:64px 24px;}
+.hero-grid,.about-grid,.con-grid,.skills-wrap{grid-template-columns:1fr;gap:40px;}
+.hero-photo-wrap{max-width:280px;}
+.hero-right{display:flex;flex-direction:column;align-items:center;}
+.about-visual{display:none;}
 .svc-grid{grid-template-columns:repeat(2,1fr);}
 .proj-grid{grid-template-columns:repeat(2,1fr);}
 .method-timeline{grid-template-columns:repeat(2,1fr);}
@@ -473,7 +533,23 @@ nav{padding:0 28px;}section{padding:72px 28px;}
 .charts-grid{grid-template-columns:1fr;}
 footer{flex-direction:column;gap:14px;text-align:center;}
 .nav-links{display:none;}
+.nav-ham{display:flex;}
 body{cursor:auto;}.cur,.cur2{display:none;}
+.hsb1,.hsb2,.hsb3{display:none;}
+.pm-box{border-radius:16px;}
+.pm-band{padding:28px 24px 24px;}
+.pm-title{font-size:24px;}
+.pm-body{padding:24px;}
+.pm-cols{grid-template-columns:1fr;}
+.pm-stats{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:600px){
+.proj-grid{grid-template-columns:1fr;}
+.pm-stats{grid-template-columns:1fr 1fr;}
+.hero-name{font-size:clamp(38px,10vw,60px);}
+section{padding:48px 18px;}
+.proj-filters{gap:6px;}
+.pf-btn{font-size:10px;padding:6px 13px;}
 }
 </style>
 </head>
@@ -482,12 +558,24 @@ body{cursor:auto;}.cur,.cur2{display:none;}
 <div class="cur" id="cur"></div>
 <div class="cur2" id="cur2"></div>
 
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" id="navClose">✕</button>
+  <a href="#about" onclick="closeNav()">Perfil</a>
+  <a href="#experience" onclick="closeNav()">Experiencia</a>
+  <a href="#projects" onclick="closeNav()">Proyectos</a>
+  <a href="#results" onclick="closeNav()">Resultados</a>
+  <a href="#charts" onclick="closeNav()">Estadísticas</a>
+  <a href="#contact" onclick="closeNav()" style="color:var(--gold)">Contactar</a>
+</div>
+
 <!-- FLOATING CTA -->
 <a href="#contact" class="float-cta">Disponible · Hablemos</a>
 
 <!-- NAV -->
 <nav id="nav">
   <div class="logo">EN<span>.</span></div>
+  <button class="nav-ham" id="navHam" aria-label="Menú"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="#about">Perfil</a></li>
           <li><a href="#experience">Experiencia</a></li>
@@ -513,32 +601,25 @@ body{cursor:auto;}.cur,.cur2{display:none;}
       <div class="btns">
         <a href="#projects" class="btn-g">Ver Proyectos</a>
         <a href="#contact" class="btn-o">Contactar</a>
-        <a href="#" class="btn-cv" onclick="alert('Guarda el portfolio como PDF desde tu navegador: Ctrl+P → Guardar como PDF')">⬇ Descargar CV</a>
+        <a href="#" class="btn-cv" onclick="window.print();return false;">⬇ Descargar CV</a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="ring-grid">
-        <div class="ring-card rv">
-          <div class="ring-wrap"><svg viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="32"/><circle class="ring-fill" id="rf1" cx="40" cy="40" r="32"/></svg><div class="ring-num" id="rn1">0</div></div>
-          <div class="ring-label">Proyectos<br>Desarrollados</div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="foto.jpg" alt="Enrique Nemer Medina" onerror="this.style.display='none'">
+          <div class="hero-photo-initials">EN</div>
         </div>
-        <div class="ring-card rv">
-          <div class="ring-wrap"><svg viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="32"/><circle class="ring-fill teal" id="rf2" cx="40" cy="40" r="32"/></svg><div class="ring-num" id="rn2" style="color:#4ade80">0</div></div>
-          <div class="ring-label">Sectores<br>Trabajados</div>
+        <div class="hero-stat-badge hsb1">
+          <span class="hsb-val">15+</span>
+          <span class="hsb-lbl">Proyectos</span>
         </div>
-        <div class="ring-card rv">
-          <div class="ring-wrap"><svg viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="32"/><circle class="ring-fill" id="rf3" cx="40" cy="40" r="32"/></svg><div class="ring-num" id="rn3">0</div></div>
-          <div class="ring-label">Disciplinas<br>Aplicadas</div>
+        <div class="hero-stat-badge hsb2">
+          <span class="hsb-val">9</span>
+          <span class="hsb-lbl">Sectores</span>
         </div>
-        <div class="ring-card rv">
-          <div class="ring-wrap"><svg viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="32"/><circle class="ring-fill teal" id="rf4" cx="40" cy="40" r="32"/></svg><div class="ring-num" id="rn4" style="color:#4ade80;font-size:16px">360°</div></div>
-          <div class="ring-label">Visión<br>Estratégica</div>
-        </div>
-      </div>
-      <div class="hero-disc rv">
-        <div class="disc-title">Especialización</div>
-        <div class="disc-tags">
-          <span class="dtag">Marketing Digital</span><span class="dtag">Branding</span><span class="dtag">Social Media</span><span class="dtag">CRM · HubSpot</span><span class="dtag">Estrategia</span><span class="dtag">Copywriting</span><span class="dtag">Campañas</span><span class="dtag">Analítica</span><span class="dtag">Dirección Creativa</span><span class="dtag">Retail Design</span>
+        <div class="hero-stat-badge hsb3">
+          <span class="hsb-txt">🎓 ESIC · Madrid</span>
         </div>
       </div>
     </div>
@@ -908,23 +989,34 @@ body{cursor:auto;}.cur,.cur2{display:none;}
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
-    <div class="rv" style="margin-bottom:56px;"><div class="sec-label">Proyectos</div><h2 class="sec-title">Casos de <span class="g">trabajo</span></h2></div>
-    <div class="proj-grid">
-      <div class="proj-card rv"><div class="proj-vis g1"><span class="proj-ico">🌮</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">01</span></div><div class="proj-body"><span class="proj-tag">Gastronomía</span><div class="proj-name">Tierra Burrito Bar</div><div class="proj-brief">Marketing gastronómico, campañas y fidelización digital.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g2"><span class="proj-ico">🌿</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">02</span></div><div class="proj-body"><span class="proj-tag">Vending Saludable</span><div class="proj-name">Vitaliv</div><div class="proj-brief">Marketing B2B, sostenibilidad y comunicación corporativa.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g3"><span class="proj-ico">🏨</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">03</span></div><div class="proj-body"><span class="proj-tag">Hotelería</span><div class="proj-name">Hotel Asturias</div><div class="proj-brief">Rebranding, posicionamiento y modernización de marca.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g4"><span class="proj-ico">🍔</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">04</span></div><div class="proj-body"><span class="proj-tag">Gastronomía</span><div class="proj-name">ByPass Burger</div><div class="proj-brief">Campañas por sucursal, eventos y calendario editorial.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g5"><span class="proj-ico">💅</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">05</span></div><div class="proj-body"><span class="proj-tag">Belleza & Estética</span><div class="proj-name">Bella Donna</div><div class="proj-brief">Plan de negocio, membresías y análisis financiero.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g6"><span class="proj-ico">✂️</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">06</span></div><div class="proj-body"><span class="proj-tag">Belleza Móvil</span><div class="proj-name">Dona Bella Mobile</div><div class="proj-brief">Peluquería móvil premium, branding e innovación.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g7"><span class="proj-ico">🏢</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">07</span></div><div class="proj-body"><span class="proj-tag">Agencia</span><div class="proj-name">Omnia Marketing</div><div class="proj-brief">Creación de agencia, branding y captación de clientes.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g9"><span class="proj-ico">☕</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">08</span></div><div class="proj-body"><span class="proj-tag">Retail</span><div class="proj-name">Starbucks Bolivia</div><div class="proj-brief">Visual merchandising, retail design y experiencia CX.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g10"><span class="proj-ico">⚙️</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">09</span></div><div class="proj-body"><span class="proj-tag">Automatización</span><div class="proj-name">Pleo</div><div class="proj-brief">HubSpot, CRM, customer journey y workflows.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g11"><span class="proj-ico">📊</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">10</span></div><div class="proj-body"><span class="proj-tag">Social Media</span><div class="proj-name">Konverting.io</div><div class="proj-brief">Social Media Plan, KPIs y generación de leads.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g12"><span class="proj-ico">🌿</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">11</span></div><div class="proj-body"><span class="proj-tag">Campaña Display</span><div class="proj-name">Mediterranean Natural</div><div class="proj-brief">Display, awareness, estrategia de medios y KPIs.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g13"><span class="proj-ico">🔍</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">12</span></div><div class="proj-body"><span class="proj-tag">Analítica</span><div class="proj-name">Fraude en Seguros</div><div class="proj-brief">Detección de fraude, análisis multivariado y data.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g14"><span class="proj-ico">🌾</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">13</span></div><div class="proj-body"><span class="proj-tag">Estrategia</span><div class="proj-name">Finca La Torre</div><div class="proj-brief">PESTEL, Porter, TAM/SAM/SOM y análisis de mercado.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g15"><span class="proj-ico">🛒</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">14</span></div><div class="proj-body"><span class="proj-tag">E-commerce</span><div class="proj-name">LG E-commerce</div><div class="proj-brief">Conversión, abandono de carrito y UX digital.</div><div class="proj-hint">Ver detalle →</div></div></div>
-      <div class="proj-card rv"><div class="proj-vis g17"><span class="proj-ico">🤝</span><div class="proj-overlay"><span>Ver Proyecto</span></div><span class="proj-num">15</span></div><div class="proj-body"><span class="proj-tag">Responsabilidad Social</span><div class="proj-name">Proyecto Social</div><div class="proj-brief">Acción comunitaria e informe académico de impacto.</div><div class="proj-hint">Ver detalle →</div></div></div>
+    <div class="rv" style="margin-bottom:36px;"><div class="sec-label">Proyectos</div><h2 class="sec-title">Casos de <span class="g">trabajo</span></h2></div>
+    <div class="proj-filters rv" id="projFilters">
+      <button class="pf-btn active" data-filter="all">Todos</button>
+      <button class="pf-btn" data-filter="Gastronomía">Gastronomía</button>
+      <button class="pf-btn" data-filter="Branding">Branding</button>
+      <button class="pf-btn" data-filter="Estrategia">Estrategia</button>
+      <button class="pf-btn" data-filter="CRM">CRM & Auto.</button>
+      <button class="pf-btn" data-filter="Social Media">Social Media</button>
+      <button class="pf-btn" data-filter="Analítica">Analítica</button>
+      <button class="pf-btn" data-filter="Hotelería">Hotelería</button>
+      <span class="pf-count" id="pfCount">15 proyectos</span>
+    </div>
+    <div class="proj-grid" id="projGrid">
+      <div class="proj-card rv" data-cats="Gastronomía"><div class="proj-vis g1"><span class="proj-ico">🌮</span><span class="proj-tipo tipo-real">Proyecto Real</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">01</span></div><div class="proj-body"><span class="proj-tag">Gastronomía</span><div class="proj-name">Tierra Burrito Bar</div><div class="proj-brief">Marketing gastronómico, campañas y fidelización digital.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Branding"><div class="proj-vis g2"><span class="proj-ico">🌿</span><span class="proj-tipo tipo-practicas">Prácticas</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">02</span></div><div class="proj-body"><span class="proj-tag">Vending Saludable</span><div class="proj-name">Vitaliv</div><div class="proj-brief">Marketing B2B, sostenibilidad y comunicación corporativa.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Hotelería Branding"><div class="proj-vis g3"><span class="proj-ico">🏨</span><span class="proj-tipo tipo-real">Proyecto Real</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">03</span></div><div class="proj-body"><span class="proj-tag">Hotelería</span><div class="proj-name">Hotel Asturias</div><div class="proj-brief">Rebranding, posicionamiento y modernización de marca.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Gastronomía"><div class="proj-vis g4"><span class="proj-ico">🍔</span><span class="proj-tipo tipo-real">Proyecto Real</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">04</span></div><div class="proj-body"><span class="proj-tag">Gastronomía</span><div class="proj-name">ByPass Burger</div><div class="proj-brief">Campañas por sucursal, eventos y calendario editorial.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Branding Estrategia"><div class="proj-vis g5"><span class="proj-ico">💅</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">05</span></div><div class="proj-body"><span class="proj-tag">Belleza & Estética</span><div class="proj-name">Bella Donna</div><div class="proj-brief">Plan de negocio, membresías y análisis financiero.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Branding"><div class="proj-vis g6"><span class="proj-ico">✂️</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">06</span></div><div class="proj-body"><span class="proj-tag">Belleza Móvil</span><div class="proj-name">Dona Bella Mobile</div><div class="proj-brief">Peluquería móvil premium, branding e innovación.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Branding Estrategia"><div class="proj-vis g7"><span class="proj-ico">🏢</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">07</span></div><div class="proj-body"><span class="proj-tag">Agencia</span><div class="proj-name">Omnia Marketing</div><div class="proj-brief">Creación de agencia, branding y captación de clientes.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Hotelería"><div class="proj-vis g9"><span class="proj-ico">☕</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">08</span></div><div class="proj-body"><span class="proj-tag">Retail</span><div class="proj-name">Starbucks Bolivia</div><div class="proj-brief">Visual merchandising, retail design y experiencia CX.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="CRM"><div class="proj-vis g10"><span class="proj-ico">⚙️</span><span class="proj-tipo tipo-practicas">Prácticas</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">09</span></div><div class="proj-body"><span class="proj-tag">Automatización</span><div class="proj-name">Pleo</div><div class="proj-brief">HubSpot, CRM, customer journey y workflows.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Social Media"><div class="proj-vis g11"><span class="proj-ico">📊</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">10</span></div><div class="proj-body"><span class="proj-tag">Social Media</span><div class="proj-name">Konverting.io</div><div class="proj-brief">Social Media Plan, KPIs y generación de leads.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Social Media"><div class="proj-vis g12"><span class="proj-ico">🌿</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">11</span></div><div class="proj-body"><span class="proj-tag">Campaña Display</span><div class="proj-name">Mediterranean Natural</div><div class="proj-brief">Display, awareness, estrategia de medios y KPIs.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Analítica"><div class="proj-vis g13"><span class="proj-ico">🔍</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">12</span></div><div class="proj-body"><span class="proj-tag">Analítica</span><div class="proj-name">Fraude en Seguros</div><div class="proj-brief">Detección de fraude, análisis multivariado y data.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Estrategia Analítica"><div class="proj-vis g14"><span class="proj-ico">🌾</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">13</span></div><div class="proj-body"><span class="proj-tag">Estrategia</span><div class="proj-name">Finca La Torre</div><div class="proj-brief">PESTEL, Porter, TAM/SAM/SOM y análisis de mercado.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Estrategia Analítica"><div class="proj-vis g15"><span class="proj-ico">🛒</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">14</span></div><div class="proj-body"><span class="proj-tag">E-commerce</span><div class="proj-name">LG E-commerce</div><div class="proj-brief">Conversión, abandono de carrito y UX digital.</div><div class="proj-hint">Ver detalle →</div></div></div>
+      <div class="proj-card rv" data-cats="Estrategia"><div class="proj-vis g17"><span class="proj-ico">🤝</span><span class="proj-tipo tipo-esic">Proyecto ESIC</span><div class="proj-overlay"><span>Ver detalle →</span></div><span class="proj-num">15</span></div><div class="proj-body"><span class="proj-tag">Responsabilidad Social</span><div class="proj-name">Proyecto Social</div><div class="proj-brief">Acción comunitaria e informe académico de impacto.</div><div class="proj-hint">Ver detalle →</div></div></div>
     </div>
   </div>
 </section>
@@ -1674,7 +1766,32 @@ document.querySelectorAll('.proj-card').forEach(card=>{
   const num=card.querySelector('.proj-num');
   if(num){const id=parseInt(num.textContent);card.onclick=()=>openProject(id);}
 });
-// Wire up mini cards
+
+// HAMBURGER NAV
+function closeNav(){document.getElementById('navMobile').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('navHam')?.addEventListener('click',()=>{document.getElementById('navMobile').classList.add('open');document.body.style.overflow='hidden';});
+document.getElementById('navClose')?.addEventListener('click',closeNav);
+
+// PROJECT FILTERS
+document.querySelectorAll('.pf-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    const cards=document.querySelectorAll('.proj-card');
+    let visible=0;
+    cards.forEach(card=>{
+      const cats=card.dataset.cats||'';
+      const show=filter==='all'||cats.includes(filter);
+      card.classList.toggle('hidden',!show);
+      if(show)visible++;
+    });
+    const c=document.getElementById('pfCount');
+    if(c)c.textContent=visible+' proyecto'+(visible===1?'':'s');
+  });
+});
+
+// dead mini wire (no longer needed)
 document.querySelectorAll('.mini').forEach(card=>{
   const name=card.querySelector('.mini-name')?.textContent.trim();
   const match=Object.entries(projects).find(([,p])=>p.title===name||p.title.includes(name)||name.includes(p.title.split(' ')[0]));
